@@ -29,6 +29,7 @@ gem 'pg', '0.17.1'
 gem 'rails-api',     '0.2.1'
 gem 'angularjs-rails', '1.2.16'
 
+gem 'rspec-rails', '2.14.2', group: :development
 
 
 # Use ActiveModel has_secure_password
