@@ -4,8 +4,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -29,8 +28,12 @@ gem 'pg', '0.17.1'
 gem 'rails-api',     '0.2.1'
 gem 'angularjs-rails', '1.2.16'
 
-gem 'rspec-rails', '2.14.2', group: :development
-
+group :test do 
+  gem 'rspec-rails',                '2.14.2'
+  gem 'factory_girl_rails',         '4.4.1'
+  gem 'faker',                      '1.3.0'
+  gem 'shoulda',                    '3.5.0'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
