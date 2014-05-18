@@ -10,6 +10,22 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+
+* See http://startbootstrap.com/sb-admin-v2 for more information about the used layout.
+
+ *= require bootstrap.min
+ *= require sb-admin
+ *= require ../font-awesome/css/font-awesome
  *= require_tree .
  *= require_self
  */
+
+/*TODO: use this method to include also the fonts in font-awesome folder*/
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../assets/glyphicons-halflings-regular.eot');
+  src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
+       url('../assets/glyphicons-halflings-regular.woff') format('woff'), 
+       url('../assets/glyphicons-halflings-regular.ttf') format('truetype'), 
+       url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}

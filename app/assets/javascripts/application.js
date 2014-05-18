@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap.min
+//= require sb-admin
 //= require angular
 //= require angular-route
 //= require app/my_numbers_app
