@@ -16,4 +16,9 @@
 //= require sb-admin
 //= require angular
 //= require angular-route
+//= require angular-resource
 //= require app/my_numbers_app
+//= require app/routes
+//= require_tree ./app/config
+//= require_tree ./app/services
+//= require_tree ./app/controllers

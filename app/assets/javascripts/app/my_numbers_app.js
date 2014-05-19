@@ -1,1 +1,1 @@
-angular.module('MyNumbersApp', ['ngRoute']);
+var MyNumbersApp = angular.module('MyNumbersApp', ['ngRoute', 'ngResource']);

@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <i class="fa fa-money fa-fw"></i> Accounts List
+  </div>
+  <!-- /.panel-heading -->
+  <div class="panel-body">
+      <div class="list-group" ng-repeat="account in data.accounts">
+          <a ng-href="#/accounts/{{account.id}}" class="list-group-item">
+              <i class="fa fa-exchange fa-fw"></i> {{account.name}}
+          </a>
+      </div>
+      <!-- /.row -->
+  </div>
+  <!-- /.panel-body -->
+</div>
