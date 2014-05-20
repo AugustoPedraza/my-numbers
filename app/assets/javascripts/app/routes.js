@@ -5,6 +5,10 @@ MyNumbersApp.config(['$routeProvider',
         templateUrl: 'assets/app/views/accounts-list.html',
         controller: 'AccountListController'
       }).
+      when('/accounts/:id', {
+        templateUrl: 'assets/app/views/account-detail.html',
+        controller: 'AccountDetailController'
+      }).
       otherwise({
         redirectTo: '/accounts'
       });
