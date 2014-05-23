@@ -6,7 +6,7 @@
   <div class="panel-body">
       <div class="list-group" ng-repeat="account in data.accounts">
           <a ng-href="#/accounts/{{account.id}}" class="list-group-item">
-              <i class="fa fa-exchange fa-fw"></i> {{account.name}}
+              <i class="fa fa-exchange fa-fw"></i> {{account.name}} <span class="pull-right" ng-class="{'text-success': account.currentBalance >= 0, 'text-danger': account.currentBalance < 0}"><b> {{account.currentBalance | currency}}</b></span>
           </a>
       </div>
       <!-- /.row -->

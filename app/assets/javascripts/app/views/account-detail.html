@@ -1,9 +1,9 @@
 <div class="panel panel-default">
   <div class="panel-heading text-danger">
     <i class="fa fa-bell fa-fw" ></i>
-    <span class="text-danger">{{data.account.name}}</span>
-    <span class="pull-right text-danger">
-      <em><b>$ - 354.00</b></em>
+    <span ng-class="{'text-success': data.account.currentBalance >= 0, 'text-danger': data.account.currentBalance < 0}">{{data.account.name}}</span>
+    <span class="pull-right" ng-class="{'text-success': data.account.currentBalance >= 0, 'text-danger': data.account.currentBalance < 0}">
+      <em><b>{{data.account.currentBalance | currency}}</b></em>
     </span>
   </div>
   <br/>
