@@ -5,7 +5,9 @@ class Api::V1::AccountsController < ApplicationController
 
   def show
     begin
-      render json: Account.includes(:cash_flows).find(params[:id]), include: :cash_flows
+      @account = Account.includes(:cash_flows).find(params[:id])
+
+      render
     rescue ActiveRecord::RecordNotFound => e
       head :not_found
     end

@@ -1,6 +1,24 @@
-<div class="form-group">
-  <label class="col-sm-2 control-label">Account</label>
-  <div class="col-sm-10">
-    <p class="form-control-static">{{data.account.name}}</p>
+<div class="panel panel-default">
+  <div class="panel-heading text-danger">
+    <i class="fa fa-bell fa-fw" ></i>
+    <span class="text-danger">{{data.account.name}}</span>
+    <span class="pull-right text-danger">
+      <em><b>$ - 354.00</b></em>
+    </span>
+  </div>
+  <br/>
+  <div class="panel-body">
+    <div class="list-group" ng-show="data.account.cashFlows.length > 0">
+      <a class="list-group-item" ng-href="/accounts/{{data.account.id}}/cashflows/{{cashFlow.id}}" ng-repeat="cashFlow in data.account.cashFlows">
+        <span class="pull-left text-muted small"><b>{{cashFlow.date | date:'mediumDate'}}</b></span>
+        <div class="clearfix"></div>
+        <i class="fa fa-money fa-fw"></i> {{cashFlow.description}}
+        <span class="pull-right" ng-class="{'text-success': cashFlow.amount >= 0, 'text-danger': cashFlow.amount < 0}"><b> {{cashFlow.amount | currency}}</b></span>
+      </a>
+    </div>
+
+      <div ng-hide="data.account.cashFlows.length > 0">
+        <div class="alert alert-info">You don't have any register cash flow.</div>
+      </div>
   </div>
 </div>
