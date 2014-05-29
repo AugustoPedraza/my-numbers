@@ -1,0 +1,68 @@
+<div class="modal-header">
+  <h3 class="modal-title">Add new expense</h3>
+</div>
+
+<div class="modal-body">
+  <form name="newExpenseForm" role="form" nonvalidate>
+    <div class="form-group required has-feedback"
+          ng-class="{'has-error' : newExpenseForm.date.$invalid && (!newExpenseForm.date.$pristine || submitted)}">
+      <label>Date</label>
+      <input name="date" ng-model="date" type="date" class="form-control" placeholder="Date" required>
+      <p class="help-block"
+          ng-show="newExpenseForm.date.$invalid && (!newExpenseForm.date.$pristine || submitted)">
+          The date is required.
+      </p>
+    </div>
+
+    <div  class="form-group required has-feedback"
+          ng-class="{'has-error' : newExpenseForm.budget.$invalid && (!newExpenseForm.budget.$pristine || submitted)}">
+      <label >Budget</label>
+      <select class="form-control"
+              name ="budget"
+              ng-model="budget"
+              ng-options="budget.name for budget in data.budgets"
+              required>
+      </select>
+      <p class="help-block" ng-show="newExpenseForm.budget.$invalid && (!newExpenseForm.budget.$pristine || submitted)">
+        The budget is required.
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <input type="text" class="form-control" placeholder="Description">
+    </div>
+
+    <div  class="form-group required has-feedback"
+          ng-class="{'has-error' : newExpenseForm.payee.$invalid && (!newExpenseForm.payee.$pristine || submitted)}">
+      <label>Payee</label>
+      <input  name="payee" ng-model="payee" type="text" class="form-control" placeholder="Payee" required>
+      <p class="help-block" ng-show="newExpenseForm.payee.$invalid && (!newExpenseForm.payee.$pristine || submitted)">
+        The payee is required.
+      </p>
+    </div>
+
+    <div  class="form-group required has-feedback"
+          ng-class="{'has-error' : newExpenseForm.amount.$invalid && (!newExpenseForm.amount.$pristine || submitted)}">
+      <label>Amount</label>
+      <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <input name="amount" ng-model="amount" type="number" class="form-control" min= "0.0" placeholder="Amount" step="any" required>
+
+      </div>
+      <p class="help-block" ng-show="newExpenseForm.amount.$invalid && (!newExpenseForm.amount.$pristine || submitted)">
+        The amount is required.
+      </p>
+    </div>
+  </form>
+
+  <div class="alert alert-danger" ng-show="data.errors.length > 0 && submitted">
+    <ul>
+      <li  ng-repeat="error in data.errors">{{error}}</li>
+    <ul>
+
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default" ng-click="closeForm();">Close</button>
+  <button class="btn btn-primary" ng-click="addNewExpense(newExpenseForm);">Save changes</button>
+</div>

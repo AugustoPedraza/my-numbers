@@ -2,9 +2,10 @@ MyNumbersApp.controller('AccountDetailController',
   [
     '$scope',
     '$routeParams',
-    '$location',
+    '$route',
+    '$modal',
     'Account',
-function($scope, $routeParams, $location, Account) {
+function($scope, $routeParams, $route, $modal, Account) {
   $scope.data = {};
 
   Account.get({id:$routeParams.id}, function(data){
@@ -13,5 +14,15 @@ function($scope, $routeParams, $location, Account) {
     alert('Account not found');
     $location.url('/');
   });
+
+  $scope.openModelForNewExpense = function() {
+    $modal.open({
+      templateUrl: 'assets/app/views/new-expense-modal.html',
+      size: 'lg',
+      controller: 'NewExpenseController'
+    }).result.then(function() {
+      $route.reload();
+    });
+  };
 
 }]);

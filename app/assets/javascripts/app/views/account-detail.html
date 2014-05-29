@@ -8,6 +8,10 @@
   </div>
   <br/>
   <div class="panel-body">
+    <button type="button" class="btn btn-outline btn-primary btn-sm" ng-click="openModelForNewExpense()">New Expense</button>
+    <button type="button" class="btn btn-outline btn-primary btn-sm">New Income</button>
+<div class="clearfix"></div>
+<br/>
     <div class="list-group" ng-show="data.account.cashFlows.length > 0">
       <a class="list-group-item" ng-href="/accounts/{{data.account.id}}/cashflows/{{cashFlow.id}}" ng-repeat="cashFlow in data.account.cashFlows">
         <span class="pull-left text-muted small"><b>{{cashFlow.date | date:'mediumDate'}}</b></span>

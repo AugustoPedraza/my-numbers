@@ -17,6 +17,7 @@
 //= require angular
 //= require angular-route
 //= require angular-resource
+//= require angular-ui-bootstrap-tpls
 //= require app/my_numbers_app
 //= require app/routes
 //= require_tree ./app/config

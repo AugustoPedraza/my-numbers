@@ -27,6 +27,8 @@ gem 'spring',        group: :development
 gem 'pg', '0.17.1'
 gem 'rails-api',     '0.2.1'
 gem 'angularjs-rails', '1.2.16'
+gem 'angular-ui-bootstrap-rails', '0.11.0'
+
 
 group :test do 
   gem 'rspec-rails',                '2.14.2'

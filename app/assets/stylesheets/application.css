@@ -29,3 +29,7 @@
        url('../assets/glyphicons-halflings-regular.ttf') format('truetype'), 
        url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
+
+.form-group.required label:after {
+   content:"*"; color: red;
+}
