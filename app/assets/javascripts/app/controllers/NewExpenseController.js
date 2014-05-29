@@ -2,7 +2,8 @@ MyNumbersApp.controller('NewExpenseController',
   [
     '$scope',
     '$modalInstance',
-function($scope, $modalInstance) {
+    'Budget',
+function($scope, $modalInstance, Budget) {
   $scope.data = {};
   $scope.data.errors = [];
 
@@ -10,12 +11,7 @@ function($scope, $modalInstance) {
   $scope.submitted = false;
 
   //Fakes budgets
-  $scope.data.budgets = [
-    { name: 'Libre bambi', id: 10 },
-    { name: 'Libre corzu', id: 30 },
-    { name: 'Comestibles', id: 153 },
-    { name: 'Transporte',  id: 33 }
-  ];
+  $scope.data.budgets = Budget.query();
 
   $scope.addNewExpense = function(newExpenseForm) {
     $scope.submitted = true;

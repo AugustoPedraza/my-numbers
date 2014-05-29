@@ -20,7 +20,7 @@
       <select class="form-control"
               name ="budget"
               ng-model="budget"
-              ng-options="budget.name for budget in data.budgets"
+              ng-options="budget.name for budget in data.budgets track by budget.id"
               required>
       </select>
       <p class="help-block" ng-show="newExpenseForm.budget.$invalid && (!newExpenseForm.budget.$pristine || submitted)">
