@@ -31,7 +31,8 @@ gem 'angular-ui-bootstrap-rails', '0.11.0'
 
 
 group :test do 
-  gem 'rspec-rails',                '2.14.2'
+  gem 'rspec-rails',                '3.0.1'
+  gem 'rspec-mocks',                '3.0.0'
   gem 'factory_girl_rails',         '4.4.1'
   gem 'faker',                      '1.3.0'
   gem 'shoulda',                    '3.5.0'
