@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe BudgetsController do
-
+describe describe Api::V1::BudgetsController do
+  pending "add some examples to (or delete) #{__FILE__}"
 end
