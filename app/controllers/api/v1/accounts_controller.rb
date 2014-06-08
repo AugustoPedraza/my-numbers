@@ -1,7 +1,8 @@
 class Api::V1::AccountsController < ApplicationController
   def index
     @accounts = Account.all
-    render
+    # render
+    respond_with @accounts
   end
 
   def show
