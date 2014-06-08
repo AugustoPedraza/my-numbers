@@ -30,12 +30,16 @@ gem 'angularjs-rails', '1.2.16'
 gem 'angular-ui-bootstrap-rails', '0.11.0'
 
 
-group :test do 
+group :test do
   gem 'rspec-rails',                '3.0.1'
   gem 'rspec-mocks',                '3.0.0'
   gem 'factory_girl_rails',         '4.4.1'
   gem 'faker',                      '1.3.0'
   gem 'shoulda',                    '3.5.0'
+end
+
+group :development, :test do
+  gem 'rails_best_practices', '1.15.4'
 end
 
 # Use ActiveModel has_secure_password
@@ -49,4 +53,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
