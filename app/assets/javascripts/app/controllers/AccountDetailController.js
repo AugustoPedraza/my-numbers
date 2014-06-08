@@ -19,7 +19,12 @@ function($scope, $routeParams, $route, $modal, Account) {
     $modal.open({
       templateUrl: 'assets/app/views/new-expense-modal.html',
       size: 'lg',
-      controller: 'NewExpenseController'
+      controller: 'NewExpenseController',
+      resolve: {
+        accountId : function() {
+          return $scope.data.account.id;
+        }
+      }
     }).result.then(function() {
       $route.reload();
     });

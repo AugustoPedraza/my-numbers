@@ -7,7 +7,7 @@
     <div class="form-group required has-feedback"
           ng-class="{'has-error' : newExpenseForm.date.$invalid && (!newExpenseForm.date.$pristine || submitted)}">
       <label>Date</label>
-      <input name="date" ng-model="date" type="date" class="form-control" placeholder="Date" required>
+      <input name="date" ng-model="cashFlow.date" type="date" class="form-control" placeholder="Date" required>
       <p class="help-block"
           ng-show="newExpenseForm.date.$invalid && (!newExpenseForm.date.$pristine || submitted)">
           The date is required.
@@ -17,10 +17,11 @@
     <div  class="form-group required has-feedback"
           ng-class="{'has-error' : newExpenseForm.budget.$invalid && (!newExpenseForm.budget.$pristine || submitted)}">
       <label >Budget</label>
+      <!-- ng-options="budget.name for budget in data.budgets track by budget.id" -->
       <select class="form-control"
               name ="budget"
-              ng-model="budget"
-              ng-options="budget.name for budget in data.budgets track by budget.id"
+              ng-model="cashFlow.budget_id"
+              ng-options="budget.id as budget.name for budget in data.budgets"
               required>
       </select>
       <p class="help-block" ng-show="newExpenseForm.budget.$invalid && (!newExpenseForm.budget.$pristine || submitted)">
@@ -30,13 +31,13 @@
 
     <div class="form-group">
       <label>Description</label>
-      <input type="text" class="form-control" placeholder="Description">
+      <input type="text" ng-model="cashFlow.description" class="form-control" placeholder="Description">
     </div>
 
     <div  class="form-group required has-feedback"
           ng-class="{'has-error' : newExpenseForm.payee.$invalid && (!newExpenseForm.payee.$pristine || submitted)}">
       <label>Payee</label>
-      <input  name="payee" ng-model="payee" type="text" class="form-control" placeholder="Payee" required>
+      <input  name="payee" ng-model="cashFlow.payee" type="text" class="form-control" placeholder="Payee" required>
       <p class="help-block" ng-show="newExpenseForm.payee.$invalid && (!newExpenseForm.payee.$pristine || submitted)">
         The payee is required.
       </p>
@@ -47,7 +48,7 @@
       <label>Amount</label>
       <div class="input-group">
         <span class="input-group-addon">$</span>
-        <input name="amount" ng-model="amount" type="number" class="form-control" min= "0.0" placeholder="Amount" step="any" required>
+        <input name="amount" ng-model="cashFlow.amount" type="number" class="form-control" min= "0.0" placeholder="Amount" step="any" required>
 
       </div>
       <p class="help-block" ng-show="newExpenseForm.amount.$invalid && (!newExpenseForm.amount.$pristine || submitted)">
