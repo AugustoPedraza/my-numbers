@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140529095813) do
+ActiveRecord::Schema.define(version: 20140608025225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,12 +36,13 @@ ActiveRecord::Schema.define(version: 20140529095813) do
   end
 
   create_table "cash_flows", force: true do |t|
-    t.string   "description", null: false
-    t.date     "date",        null: false
-    t.float    "amount",      null: false
-    t.integer  "account_id",  null: false
+    t.string   "description",                            null: false
+    t.date     "date",                                   null: false
+    t.float    "amount",                                 null: false
+    t.integer  "account_id",                             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "payee",       default: "PUT SOME VALID", null: false
   end
 
   add_index "cash_flows", ["account_id"], name: "index_cash_flows_on_account_id", using: :btree

@@ -5,5 +5,6 @@ class CashFlow < ActiveRecord::Base
   validates :amount, presence: true
   validates :date, presence: true
   validates :description, presence: true
+  validates :payee, presence: true
 
 end
