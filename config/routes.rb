@@ -59,7 +59,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
       resources :accounts, only: [:show, :index] do
-        resources :cash_flows, only: [:create, :show]
+        resources :expenses, only: [:create, :show]
       end
 
       resources :budgets, only: [:index]

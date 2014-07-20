@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Api::V1::CashFlowsController, type: :controller do
+describe Api::V1::ExpensesController, type: :controller do
   describe ".create" do
-    let(:cash_flow_json) do
+    let(:expense_json) do
       {
         :amount => 33.66,
         date: DateTime.now,
@@ -14,19 +14,19 @@ describe Api::V1::CashFlowsController, type: :controller do
       let(:account_double) do
         obj  = double(Account)
         allow(obj).to receive(:to_param).and_return(33)
-        allow(obj).to receive_message_chain(:cash_flows, :build).and_return(cash_flow_double)
+        allow(obj).to receive_message_chain(:expenses, :build).and_return(expense_double)
 
         obj
       end
 
       before(:each) do
         Account.stub(:find).with("33").and_return(account_double)
-        post :create,  format: :json, :account_id => 33, cash_flow: cash_flow_json
+        post :create,  format: :json, :account_id => 33, expense: expense_json
       end
 
       context 'with valid attributes' do
-        let(:cash_flow_double) do
-          obj = double(CashFlow)
+        let(:expense_double) do
+          obj = double(Expense)
           allow(obj).to receive(:save).and_return(true)
           allow(obj).to receive(:to_param).and_return(1)
 
@@ -34,7 +34,7 @@ describe Api::V1::CashFlowsController, type: :controller do
         end
 
         it "create a new cash flow" do
-          expect(cash_flow_double).to have_received(:save)
+          expect(expense_double).to have_received(:save)
         end
 
         it "return created resource code" do
@@ -42,7 +42,7 @@ describe Api::V1::CashFlowsController, type: :controller do
         end
 
         it "return location for new created resource" do
-          expect(response.location).to eql('/api/v1/accounts/33/cash_flows/1')
+          expect(response.location).to eql('/api/v1/accounts/33/expenses/1')
         end
 
         it "return a empty body" do
@@ -59,10 +59,10 @@ describe Api::V1::CashFlowsController, type: :controller do
           }
         end
 
-        let(:cash_flow_double) do
+        let(:expense_double) do
           allow_message_expectations_on_nil
 
-          obj = double(CashFlow)
+          obj = double(Expense)
           allow(obj).to receive(:save).and_return(false)
           allow(obj).to receive(:to_param).and_return(1)
           allow(obj).to receive(:errors)
@@ -98,7 +98,7 @@ describe Api::V1::CashFlowsController, type: :controller do
     context 'with invalid account id' do
       before(:each) do
         Account.stub(:find).with("33").and_raise(ActiveRecord::RecordNotFound)
-        post :create,  format: :json, :account_id => 33, cash_flow: cash_flow_json
+        post :create,  format: :json, :account_id => 33, expense: expense_json
       end
 
       context 'with invalid account' do

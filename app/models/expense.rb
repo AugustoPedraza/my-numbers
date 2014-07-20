@@ -1,4 +1,4 @@
-class CashFlow < ActiveRecord::Base
+class Expense < ActiveRecord::Base
   belongs_to :account
 
   validates :account, presence: true
