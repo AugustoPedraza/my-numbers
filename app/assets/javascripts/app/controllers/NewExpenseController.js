@@ -19,6 +19,7 @@ function($scope, $modalInstance, Budget, Expenses, accountId) {
     if(newExpenseForm.$valid) {
       //Invoke the server. If all is ok, close the modal. If some error was found, shows the errors.
 
+    $scope.expense.amount = - Math.abs($scope.expense.amount);
       Expenses.create({expense : $scope.expense }, function(objSuccess) {
         $modalInstance.close();
       }, function(objError) {
