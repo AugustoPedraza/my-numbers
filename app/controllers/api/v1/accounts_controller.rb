@@ -6,7 +6,7 @@ class Api::V1::AccountsController < ApplicationController
 
   def show
     begin
-      @account = Account.includes(:cash_flows).find(params[:id])
+      @account = Account.includes(:expenses).find(params[:id])
 
       render
     rescue ActiveRecord::RecordNotFound => e

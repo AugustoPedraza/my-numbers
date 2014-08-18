@@ -15,7 +15,7 @@ function($scope, $routeParams, $route, $modal, Account) {
     $location.url('/');
   });
 
-  $scope.openModelForNewExpense = function() {
+  $scope.openModalForNewExpense = function() {
     $modal.open({
       templateUrl: 'assets/app/views/new-expense-modal.html',
       size: 'lg',

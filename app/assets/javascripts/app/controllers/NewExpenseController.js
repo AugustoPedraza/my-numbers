@@ -3,11 +3,10 @@ MyNumbersApp.controller('NewExpenseController',
     '$scope',
     '$modalInstance',
     'Budget',
-    'CashFlow',
+    'Expenses',
     'accountId',
-function($scope, $modalInstance, Budget, CashFlow, accountId) {
-  console.log(accountId);
-  $scope.cashFlow = { account_id : accountId};
+function($scope, $modalInstance, Budget, Expenses, accountId) {
+  $scope.expense = { account_id : accountId};
   $scope.submitted = false;
 
   $scope.data = {};
@@ -20,13 +19,12 @@ function($scope, $modalInstance, Budget, CashFlow, accountId) {
     if(newExpenseForm.$valid) {
       //Invoke the server. If all is ok, close the modal. If some error was found, shows the errors.
 
-      $scope.cashFlow.account_id = 2;
-
-      CashFlow.create({cash_flow : $scope.cashFlow }, function(objSuccess) {
+      Expenses.create({expense : $scope.expense }, function(objSuccess) {
         $modalInstance.close();
       }, function(objError) {
         console.log(':(');
         console.debug(objError);
+        $scope.data.errors = objError.data;
       });
 
     }

@@ -78,12 +78,11 @@ describe Api::V1::ExpensesController, type: :controller do
 
         describe "validations error" do
           it "return a json with all messages" do
-            expected =
-            {
-              :description => ["Description can't blank"],
-              :amount => ["Amount can't be less than 0"],
-              :payee => ["payee can't be blank", "other violated validation"]
-            }.to_json
+            expected = [
+              { field: :description, messages: ["Description can't blank"] },
+              { field: :amount, messages: ["Amount can't be less than 0"] },
+              { field: :payee, messages: ["payee can't be blank", "other violated validation"] }
+            ].to_json
 
             expect(response.body).to eql(expected)
           end

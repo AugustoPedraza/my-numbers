@@ -8,10 +8,10 @@ class Api::V1::ExpensesController < ApplicationController
         response.status   = :created
         response.location = api_v1_account_expense_path(account, expense)
       else
-        errors = {}
+        errors = []
 
         expense.errors.keys.each do |attr|
-          errors[attr] = expense.errors.full_messages_for(attr)
+          errors << {field: attr, messages: expense.errors.full_messages_for(attr)}
         end
 
         response.status = :unprocessable_entity

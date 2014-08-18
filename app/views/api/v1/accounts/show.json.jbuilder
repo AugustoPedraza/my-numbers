@@ -1,5 +1,5 @@
-json.extract! @account, :id, :name, :current_balance, :cash_flows
+json.extract! @account, :id, :name, :current_balance, :expenses
 
-json.cash_flows @account.cash_flows do |cash_flow|
-  json.extract! cash_flow, :id, :date, :amount, :description
+json.expenses @account.expenses do |expense|
+  json.extract! expense, :id, :date, :amount, :description
 end

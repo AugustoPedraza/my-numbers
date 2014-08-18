@@ -12,8 +12,8 @@
     <button type="button" class="btn btn-outline btn-primary btn-sm">New Income</button>
     <div class="clearfix"></div>
     <br/>
-    <div class="list-group" ng-show="data.account.cashFlows.length > 0">
-      <a class="list-group-item" ng-href="/accounts/{{data.account.id}}/cashflows/{{cashFlow.id}}" ng-repeat="cashFlow in data.account.cashFlows">
+    <div class="list-group" ng-show="data.account.expenses.length > 0">
+      <a class="list-group-item" ng-href="#/accounts/{{data.account.id}}/expenses/{{cashFlow.id}}" ng-repeat="cashFlow in data.account.expenses">
         <span class="pull-left text-muted small"><b>{{cashFlow.date | date:'mediumDate'}}</b></span>
         <div class="clearfix"></div>
         <i class="fa fa-money fa-fw"></i> {{cashFlow.description}}
@@ -21,7 +21,7 @@
       </a>
     </div>
 
-    <div ng-hide="data.account.cashFlows.length > 0">
+    <div ng-hide="data.account.expenses.length > 0">
       <div class="alert alert-info">You don't have any register cash flow.</div>
     </div>
   </div>
