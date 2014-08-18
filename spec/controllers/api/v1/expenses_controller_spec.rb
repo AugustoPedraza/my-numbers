@@ -11,21 +11,21 @@ describe Api::V1::ExpensesController, type: :controller do
     end
 
     context 'with valid account id' do
-      let(:account_double) do
+      let(:account_stub) do
         obj  = double(Account)
         allow(obj).to receive(:to_param).and_return(33)
-        allow(obj).to receive_message_chain(:expenses, :build).and_return(expense_double)
+        allow(obj).to receive_message_chain(:expenses, :build).and_return(expense_stub)
 
         obj
       end
 
       before(:each) do
-        Account.stub(:find).with("33").and_return(account_double)
+        Account.stub(:find).with("33").and_return(account_stub)
         post :create,  format: :json, :account_id => 33, expense: expense_json
       end
 
       context 'with valid attributes' do
-        let(:expense_double) do
+        let(:expense_stub) do
           obj = double(Expense)
           allow(obj).to receive(:save).and_return(true)
           allow(obj).to receive(:to_param).and_return(1)
@@ -34,7 +34,7 @@ describe Api::V1::ExpensesController, type: :controller do
         end
 
         it "create a new cash flow" do
-          expect(expense_double).to have_received(:save)
+          expect(expense_stub).to have_received(:save)
         end
 
         it "return created resource code" do
@@ -59,7 +59,7 @@ describe Api::V1::ExpensesController, type: :controller do
           }
         end
 
-        let(:expense_double) do
+        let(:expense_stub) do
           allow_message_expectations_on_nil
 
           obj = double(Expense)
